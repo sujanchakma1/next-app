@@ -86,7 +86,7 @@ export default function AddProduct() {
           className="input input-bordered w-full"
         />
 
-        <button type="submit" className="btn btn-primary w-full" disabled={loading}>
+        <button type="submit" className="btn btn-primary rounded-full w-full" disabled={loading}>
           {loading ? "Adding..." : "Add Product"}
         </button>
       </form>

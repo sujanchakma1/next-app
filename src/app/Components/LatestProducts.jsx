@@ -24,7 +24,7 @@ export default function LatestProducts() {
 
   return (
     <div className="my-10">
-      <h2 className="text-center font-bold text-3xl">Latest Products</h2>
+      <h2 className="text-center font-bold text-3xl mb-5">Latest Products</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {products.map((product) => (
           <div key={product._id} className="bg-base-300 hover:shadow-2xl rounded-xl p-4 shadow">

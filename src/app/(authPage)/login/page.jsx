@@ -1,28 +1,24 @@
 "use client";
 
 import { signIn, signOut, useSession } from "next-auth/react";
-import { useState } from "react";
-import { FcGoogle } from "react-icons/fc"; // Google icon
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation"; // Next.js 13+ useRouter
 
 export default function LoginPage() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  if (session) {
-    return (
-      <div className="flex flex-col items-center gap-4 p-6">
-        <h2 className="text-xl">
-          Welcome, {session.user?.name || session.user?.email}
-        </h2>
-        <button onClick={() => signOut()} className="btn btn-error">
-          Logout
-        </button>
-      </div>
-    );
-  }
+  // Redirect logic
+  useEffect(() => {
+    if (status === "authenticated") {
+      router.push("/products"); // login successful → products page
+    }
+  }, [status]);
 
   const handleCredentialsLogin = async () => {
     setLoading(true);
@@ -30,8 +26,7 @@ export default function LoginPage() {
     const res = await signIn("credentials", {
       email,
       password,
-      redirect: true,
-      callbackUrl: "/products",
+      redirect: false, // redirect manually with router
     });
     setLoading(false);
 
@@ -40,9 +35,9 @@ export default function LoginPage() {
     }
   };
 
-  const handleGoogleLogin = () => {
-    signIn("google");
-  };
+  if (status === "loading") {
+    return <p className="text-center mt-10">Checking session...</p>;
+  }
 
   return (
     <div className="flex flex-col items-center gap-4 p-6 max-w-sm mx-auto mt-10">

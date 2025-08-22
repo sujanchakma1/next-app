@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next App
 
-## Getting Started
+This is a **Next.js** project with authentication (Google & credentials), product management, and a responsive dashboard using **DaisyUI**. Users can log in, view products, and add products if logged in.
 
-First, run the development server:
+---
 
+## Live Site
+[Live Demo on Vercel](https://next-app-sujan.vercel.app/)
+
+---
+
+## GitHub Repository
+[https://github.com/your-username/next-app](https://github.com/sujanchakma1/next-app)
+
+---
+
+## Project Description
+
+- Built with **Next.js 15**, **React**, **Tailwind CSS**, **DaisyUI**.
+- Authentication via **NextAuth.js** (Google + Credentials).
+- Products stored in **MongoDB**.
+- Dashboard for managing products (protected route).
+- Responsive layout with sidebar and drawer for mobile devices.
+- Loading spinner during data fetch.
+
+---
+
+## Setup & Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+git clone https://github.com/sujanchakma1/next-app
+cd next-app
+2. Features Section
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Authentication: Credentials
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Products: Add/View/Manage
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Dashboard: Protected routes, responsive layout
 
-## Learn More
+Responsive design: Sidebar + mobile drawer
 
-To learn more about Next.js, take a look at the following resources:
+Loading states for API calls
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+MongoDB integration
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Installation & Setup
 
-## Deploy on Vercel
+Node.js version
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Dependencies (npm install)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Environment variables
+
+Run commands (npm run dev, npm run build)
+
+4. Route Summary (Already included)
+
+/ → Home
+
+/login → Login page
+
+/products → All products
+
+/dashboard → Dashboard overview
+
+/dashboard/addProduct → Add Products
+
+Optional: You can add more specific API routes:
+
+Route	Method	Description
+/api/products	GET	Fetch all products
+/api/products/latest	GET	Fetch latest 5 products
+/api/products/add	POST	Add a new product (authenticated)
+
+5. Environment Variables
+
+GOOGLE_CLIENT_ID
+
+GOOGLE_CLIENT_SECRET
+
+NEXTAUTH_SECRET
+
+MONGODB_URI
+
+6. Technologies / Stack
+
+Next.js, React, Tailwind CSS, DaisyUI, NextAuth.js, MongoDB, Vercel

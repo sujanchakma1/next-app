@@ -22,7 +22,7 @@ export default function DashboardLayout({ children }) {
         </ul>
         <button
           onClick={() => signOut({ callbackUrl: "/" })}
-          className="btn btn-error w-full mt-4"
+          className="btn btn-error rounded-full w-full mt-4"
         >
           Logout
         </button>
