@@ -48,14 +48,17 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <Link href="/" className="text-2xl font-bold">NextApp</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end">
         {session?.user ? (
-          <button onClick={() => signOut()} className="btn btn-error rounded-full">
+          <button
+            onClick={() => signOut()}
+            className="btn btn-error rounded-full"
+          >
             Logout
           </button>
         ) : (

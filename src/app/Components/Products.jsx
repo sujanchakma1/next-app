@@ -20,16 +20,21 @@ export default function Products() {
       });
   }, []);
 
-  if (loading) return  <Loading></Loading>  ;
+  if (loading) return <Loading></Loading>;
 
-  if (!products.length) return <p className="flex justify-center items-center h-screen">No products found.</p>;
+  if (!products.length)
+    return (
+      <p className="flex justify-center items-center h-screen">
+        No products found.
+      </p>
+    );
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
       {products.map((product) => (
         <div
           key={product._id}
-          className="bg-base-200 hover:shadow-2xl rounded p-4 shadow"
+          className="bg-base-300 hover:shadow-2xl rounded p-4 shadow-xl"
         >
           <img
             src={product.image}
@@ -39,6 +44,9 @@ export default function Products() {
           <h2 className="text-lg font-bold">{product.name}</h2>
           <p>{product.description}</p>
           <p className="font-semibold mt-2">${product.price}</p>
+          <div className="flex justify-end">
+            <button className=" btn btn-primary rounded-full">Details</button>
+          </div>
         </div>
       ))}
     </div>
